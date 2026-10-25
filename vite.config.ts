@@ -57,7 +57,7 @@ export default defineConfig(({ command, isPreview }) => ({
     ...(command === "build" || isPreview
       ? [
           nitro({
-            preset: "node-server",
+            preset: process.env.VERCEL ? "vercel" : "node-server",
           }),
         ]
       : []),
